@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>カフェメニュー追加</title>
+</head>
+<body>
+  <h2>カフェメニューを追加</h2>
+
+  <form action="/cafe_add" method="get">
+    <p>
+      <label>ID：</label>
+      <input type="number" name="id" required>
+    </p>
+
+    <p>
+      <label>商品名：</label>
+      <input type="text" name="name" required>
+    </p>
+
+    <p>
+      <label>価格：</label>
+      <input type="number" name="price" required>円
+    </p>
+
+    <button type="submit">追加する</button>
+  </form>
+</body>
+</html>

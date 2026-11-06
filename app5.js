@@ -63,4 +63,49 @@ app.get("/janken", (req, res) => {
   res.render( 'janken', display );
 });
 
+let station = [
+  { id: 1, code: "JE01", name: "東京駅" },
+  { id: 2, code: "JE07", name: "舞浜駅" },
+  { id: 3, code: "JE12", name: "新習志野駅" },
+  { id: 4, code: "JE13", name: "幕張豊砂駅" },
+  { id: 5, code: "JE14", name: "海浜幕張駅" },
+  { id: 6, code: "JE15", name: "検見川浜駅" }
+];
+
+app.get("/keiyo", (req, res) => {
+  res.render("db1", { data: station });
+});
+
+app.get("/keiyo_add", (req, res) => {
+  const newStation = {
+    id: Number(req.query.id),
+    code: req.query.code,
+    name: req.query.name
+  };
+
+  station.push(newStation);
+  res.render("db1", { data: station });
+});
+
+let cafeMenu = [
+  { id: 1, name: "カフェラテ", price: 500 },
+  { id: 2, name: "抹茶ラテ", price: 550 },
+  { id: 3, name: "チーズケーキ", price: 600 }
+];
+
+app.get("/cafe", (req, res) => {
+  res.render("cafe", { data: cafeMenu });
+});
+
+app.get("/cafe_add", (req, res) => {
+  const newMenu = {
+    id: Number(req.query.id),
+    name: req.query.name,
+    price: Number(req.query.price)
+  };
+
+  cafeMenu.push(newMenu);
+  res.render("cafe", { data: cafeMenu });
+});
+
 app.listen(8080, () => console.log("Example app listening on port 8080!"));
